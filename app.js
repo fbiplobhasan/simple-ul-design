@@ -6,7 +6,6 @@ const people = [
         contact: "01711-123456",
         address: "House #12, Road #4, Dhanmondi, Dhaka",
         hobbies: ["Reading", "Traveling", "Listening to music"],
-        city: "Dhaka"
     },
     {
         id: 2,
@@ -24,7 +23,6 @@ const people = [
         contact: "01933-987654",
         address: "Shaheed Minar Road, Rajshahi",
         hobbies: ["Photography", "Gaming", "Cooking"],
-        city: "Rajshahi"
     },
     {
         id: 4,
@@ -33,7 +31,6 @@ const people = [
         contact: "01644-876543",
         address: "Khulna Sadar, Khulna",
         hobbies: ["Dancing", "Singing", "Crafting"],
-        city: "Khulna"
     },
     {
         id: 5,
@@ -78,14 +75,22 @@ const displayPersonIfo = (person) => {
     // removeAttribute
     personInfo.classList.remove('hidden')
 
+    // add hiddenAttribute
+    document.getElementById('person-selection').classList.add('hidden')
+
     // create and displayInfo
     personInfo.innerHTML = `
 
        <h2 class="text-xl font-bold mb-2">
        ${person.name}
        </h2>
-
+       <p> City: ${person?.city || "N/A"} </p>
+       <p> Occupation: ${person?.occupation || "N/A"} </p>
+       <p> Mobil No. ${person?.contact || "N/A"} </p>
+       <p> House Information: ${person?.address || "N/A"} </p>
+       <p> Hobbies: ${person?.hobbies?.join(", ") || "N/A"} </p>
    `
+    //    <p> Hobbies: ${person?.hobbies.map((hobby) => hobby)} </p>
 
 }
 
